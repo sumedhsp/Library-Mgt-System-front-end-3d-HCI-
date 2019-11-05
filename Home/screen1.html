@@ -1,0 +1,789 @@
+<?php
+	session_start();
+?>
+<html>
+	<head>
+	<meta name='viewport' content="width=device-width, initial-scale=1.0">
+	<title>Book Corner</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href='responsive.css'>
+	<style>
+	body {
+	margin: 0px;
+	padding: 0px;
+	overflow-x: hidden;
+}
+	.mySlides{
+	height:100%;
+	width:100%;
+	display: none;
+	z-index:0;
+	position:absolute;
+	
+}
+	.company-logo{
+		width:170px; 
+		height:60px;
+		float:left;
+		margin-left:5px;
+		margin-right:50px;
+		margin-top:2px;
+	}
+	.topnav{
+		overflow:hidden;
+		background-color:black;
+		opacity:0.6;
+	}
+	
+	.topnav a{
+		text-decoration:none;
+		color:white;	
+		float:left;
+		font-family:Arial;
+		font-size:18px;
+		display:block;
+		text-align:center;
+		padding:19px;
+		margin-top:3px;
+}
+	.topnav .icon {
+		display:none;
+	}
+	.dropdown{
+		float:left;
+		overflow:hidden;
+	}
+	.dropdown .dropbtn{
+		border:none;
+		outline:none;
+		color:white;
+		margin-top:3px;
+		font-size:18px;
+		padding:19px;
+		background-color:inherit;
+		font-family:Arial;
+	}
+	.dropdown-content{
+		display:none;
+		position:absolute;
+		min-width:160px;
+		box-shadow:0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index:5;
+		background-color: #f9f9f9;
+	}
+	.dropdown-content a{
+		float:none;
+		color:black;
+		text-decoration: none;
+		display:block;
+		padding:12px 16px;
+		text-align:left;
+	}
+	.topnav a:hover, .dropdown:hover .dropbtn{
+		background-color:white;
+		color:black;
+		opacity:1;
+		border-radius:5px;
+	}
+	.dropdown-content a:hover{
+		background-color: #ddd;
+		color: black;
+	}
+	.dropdown:hover .dropdown-content{
+		display:block;
+	}
+	
+	
+.new_user{
+				height:76vh;
+				width:26vw;
+				box-shadow:0px 0px 10px 0px #888888;
+				background-color:#E9EBEE;
+				position:absolute;
+				top:20%;
+				left:20%;
+				opacity:0.6;
+			}
+			.input-field1{
+					padding:0.7vw;
+					border-radius:10px;
+					margin-bottom:0.5vw;
+					width:13vw;
+					border:1px solid black;
+					font-size:2vh;
+			}
+			input:focus{
+					border-radius:10px;
+					outline:0 none;
+					box-shadow:0px 0px 10px 0px white;
+			}
+			#signup_button{
+				text-align:center;
+				border:none;
+				padding:0.8vw;
+				position:relative;
+				background-color:#286090;
+				color:white;
+				border-radius:10px;
+				cursor:pointer;
+				font-weight:bold;
+				width:13vw;
+				font-size:2vh;
+			}
+			#signup_button:hover{
+				background-color:green;
+				color:white;
+			}
+			.formsign_up_style{
+			position:relative; 
+			left:15%;
+			top:2%; 
+			
+			}
+			.label_class{
+				position:relative;
+				top:-2px;
+				font-weight:bold;
+				color:black;
+				font-size:2vh;
+			}
+			.login-form{
+				height:76vh;
+				width:26vw;
+				border-radius:5px;
+				box-shadow:0px 0px 20px 0px #888888;
+				position:absolute;
+				top:20%;
+				left:20%;
+				background-color:black;
+				opacity:0.6;
+			}
+			.input-field{
+					padding:0.7vw;
+					border-radius:10px;
+					margin-bottom:0.5vw;
+					width:13vw;
+					border:1px solid black;;
+					font-size:2vh;
+			}
+			input:focus{
+					
+					border-radius:10px;
+					outline:0 none;
+					box-shadow:0px 0px 10px 0px white;
+			}
+			#login_button{
+				text-align:center;
+				border:none;
+				padding:0.8vw;
+				background-color:#286090;
+				color:white;
+				font-size:2vh;
+				font-weight:bold;
+				border-radius:10px;
+				cursor:pointer;
+				width:13vw;
+			}
+			#login_button:hover{
+				background-color:green;
+				color:white;
+			}
+			.form_style{
+			position:relative; 
+			left:25%;
+			top:30%; 
+			
+			}
+			.logo_position{
+				position:relative;
+				left:29%;
+				top:17vh;
+				width:10vw; 
+				height:10vh;
+			}
+			.3d-box{
+				height:76vh;
+				width:26vw;
+				perspective:800px;
+			}
+			.for_size{
+				height:76vh;
+				width:26vw;
+				position:absolute;
+				left:70vw;
+				top:15vh;
+				animation: rotate 20s linear infinite;
+				transform-style: preserve-3d;
+				animation-play-state: running;
+				
+			}
+			
+			.for_size div{
+				position:absolute;	
+			}
+			.front-side{
+				transform: translateZ(10.2vw);
+			}
+			.back-side{
+				transform: rotateY(180deg) translateZ(16vw);
+				background-color:gray;
+			}
+			.left-side{
+				transform: rotateY(-90deg) translateX(-16vw);
+				transform-origin: left;
+			}
+			.right-side{
+				transform: rotateY(90deg) translateX(16vw);
+				transform-origin: right;
+				background-color:gray;
+			}
+			.top-side{
+				transform: rotateX(-90deg) translateY(-16vw);
+				transform-origin:top;
+				background-color:gray;
+			}
+			.bottom-side{
+				transform: rotateX(90deg) translateY(16vw);
+				transform-origin: bottom;
+				background-color:gray;
+			}
+			@keyframes rotate{
+				0%{
+					transform: rotateY(-5deg);
+				}
+				50%{
+					transform: rotateY(95deg);
+				}
+				100%{
+					transform: rotateY(-5deg);
+					}
+			}
+			h4{
+				font-size:3vh;
+				text-align:center;
+				color:#286090;
+				font-family:sans-serif;
+				
+				font-weight:bold;
+			}
+			
+			@media screen and (max-height: 700px), (max:width:600px) {
+				.new_user{
+					width:50vw;
+					position:absolute;
+					top:20%;
+					left:5%:
+				}
+				#signup_button{
+				text-align:center;
+				border:none;
+				padding:0.8vw;
+				position:relative;
+				background-color:#286090;
+				color:white;
+				border-radius:10px;
+				cursor:pointer;
+				font-weight:bold;
+				width:20vw;
+				font-size:2vh;
+			}
+				.login-form{
+					width:50vw;
+					position:absolute;
+					left:5%;
+					top:20%;
+					opacity:0.6;
+				}
+				.input-field1{
+					padding:0.7vw;
+					border-radius:10px;
+					margin-bottom:0.5vw;
+					width:20vw;
+					border:1px solid black;
+					font-size:2vh;
+				}
+				.logo_position{
+				position:relative;
+				left:29%;
+				top:17vh;
+				width:20vw; 
+				height:10vh;
+			}
+				#login_button{
+				text-align:center;
+				border:none;
+				padding:0.8vw;
+				background-color:#286090;
+				color:white;
+				font-size:2vh;
+				font-weight:bold;
+				border-radius:10px;
+				cursor:pointer;
+				width:20vw;
+			}
+				.input-field{
+					padding:0.7vw;
+					border-radius:10px;
+					margin-bottom:0.5vw;
+					width:20vw;
+					border:1px solid black;;
+					font-size:2vh;
+				}
+				.3d-box{
+				height:76vh;
+				width:40vw;
+				perspective:800px;
+				}
+				.for_size{
+					height:76vh;
+					width:50vw;
+					position:absolute;
+					left:20vw;
+					top:15vh;
+					animation: rotate 20s linear infinite;
+					transform-style: preserve-3d;
+					animation-play-state: running;
+				
+				}
+				
+				
+			.for_size div{
+				position:absolute;	
+			}
+			.front-side{
+				transform: translateZ(34vw);
+			}
+			.back-side{
+				transform: rotateY(180deg) translateZ(16vw);
+				background-color:gray;
+			}
+			.left-side{
+				transform: rotateY(-90deg) translateX(-16vw);
+				transform-origin: left;
+			}
+			.right-side{
+				transform: rotateY(90deg) translateX(16vw);
+				transform-origin: right;
+				background-color:gray;
+			}
+			.top-side{
+				transform: rotateX(-90deg) translateY(-16vw);
+				transform-origin:top;
+				background-color:gray;
+			}
+			.bottom-side{
+				transform: rotateX(90deg) translateY(16vw);
+				transform-origin: bottom;
+				background-color:gray;
+			}
+			@keyframes rotate{
+				0%{
+					transform: rotateY(-5deg);
+				}
+				50%{
+					transform: rotateY(95deg);
+				}
+				100%{
+					transform: rotateY(-5deg);
+					}
+			}
+			}
+			
+</style>
+<script>
+	function username_validate1(){
+			var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var username = document.getElementById('usrname').value;
+				if (username==''){
+					document.getElementById('usrname').style.borderColor = 'red';
+					return false;
+				}
+				else{
+					document.getElementById('usrname').style.borderColor = 'green';
+					return true;
+				}
+	}
+	function password_validate2(){
+		var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var pass = document.getElementById('pass1').value;
+				if (pass==''){
+					document.getElementById('pass1').style.borderColor = 'red';
+					return false;
+				}
+				else{
+					document.getElementById('pass1').style.borderColor = 'green';
+					return true;
+				}
+	}
+	function form_validation(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var username = username_validate1();
+				var password = password_validate2();
+				if (username==true && password==true){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+	function show_dialog(){
+		var a = document.getElementsByClassName('login-form');
+		//alert(a[0].style.display);
+		
+		if (a[0].style.display == 'inline-block'){
+			a[0].style.display = 'none';
+		}
+		else{
+			a[0].style.display = 'inline-block';
+		}
+	}
+	
+	
+		function change_color(){
+				var c = document.getElementsByClassName('label_class');
+				if (document.getElementById('imale').checked){
+					c[0].style.color = 'green';
+					//c[0].style.fontWeight = 'bold';
+					c[1].style.color = 'white';
+					//c[1].style.fontWeight = '0';
+				}
+				else{
+					c[1].style.color = 'green';
+					c[0].style.color = 'white';
+					
+				}
+			}
+			function validate1(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var name = document.getElementById('uname').value;
+				if (name==''){
+					document.getElementById('uname').style.borderColor = 'red';
+					return false;
+				}
+				else{
+					document.getElementById('uname').style.borderColor = 'green';
+					return true;
+				}
+			}
+			function validate2(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var lname = document.getElementById('ulname').value;
+				if (lname==''){
+					document.getElementById('ulname').style.borderColor = 'red';
+					return false;
+				}
+				else{
+					document.getElementById('ulname').style.borderColor = 'green';
+					return true;
+				}
+			}
+			function validate3(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var email = document.getElementById('email').value;
+				var i=0; var check = false;
+				for (i=0; i<email.length; i++){
+					if (email[i]=='@'){
+						check = true;
+					}
+				}	
+				if (email==""){
+					document.getElementById('email').style.borderColor = 'red';
+					return false;
+				}
+				else if(check==false){
+					document.getElementById('email').style.borderColor = 'red';
+					document.getElementById('email_info').innerHTML = 'Invalid email address';
+					document.getElementById('email_info').style.color = 'red';
+					return false;
+				}
+				else {
+					document.getElementById('email').style.borderColor = 'green';
+					document.getElementById('email_info').innerHTML = '';
+					document.getElementById('email_info').style.color = 'none';		
+					return true;
+				}
+			}
+			function validate4(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var phone = document.getElementById('phone').value;
+				if (phone==""){
+					document.getElementById('phone').style.borderColor = 'red';
+					return false;
+				}
+				else if (phone.length != 10){
+					document.getElementById('phone').style.borderColor = 'red';
+					document.getElementById('phone_info').innerHTML = 'Phone number invalid';
+					document.getElementById('phone_info').style.color = 'red';
+					return false;
+				}
+				else{
+					document.getElementById('phone').style.borderColor = 'green';
+					document.getElementById('phone_info').innerHTML = '';
+					document.getElementById('phone_info').style.color = 'none';
+					return true;
+				}
+			}
+			function validate5(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var date1 = document.getElementById('age').value;
+				if (date1==''){
+					document.getElementById('age').style.borderColor = 'red';
+					return false;
+				}
+				else{
+					document.getElementById('age').style.borderColor = 'green';
+					return true;
+				}
+			}
+			function validate6(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var pass = document.getElementById('pass').value;
+				if (pass==""){
+					document.getElementById('pass').style.borderColor = 'red';
+					return false;
+				}
+				else if (pass.length < 8){
+					document.getElementById('pass').style.borderColor = 'red';
+					document.getElementById('pass_info').innerHTML = 'Password should have more than 8 characters';
+					document.getElementById('pass_info').style.color = 'red';
+					return false;
+				}
+				else{
+					document.getElementById('pass').style.borderColor = 'green';
+					return true;
+				}
+			}
+			function validate7(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				var pass = document.getElementById('pass').value;
+				var cpass = document.getElementById('cpass').value;
+				if (cpass!=pass){
+					document.getElementById('cpass').style.borderColor = 'red';
+					return false;
+					}
+				else if(cpass==""){
+					document.getElementById('cpass').style.borderColor = 'red';
+				}
+					else{
+					document.getElementById('cpass').style.borderColor = 'green';
+					return true;
+					}
+					
+			}
+			function signup_validation(){
+			var a = validate1();
+			var b = validate2();
+			var c = validate3();
+			var d = validate4();
+			var e = validate5();
+			var f = validate6();
+			var g = validate7();
+			if (a==true && b==true && c==true && d==true && e==true && f==true && g==true){
+				return true;
+			}
+			else{
+				return false;
+			}
+			}
+			function stop_animation(){
+				var d = document.getElementsByClassName('for_size');
+				d[0].style.animationPlayState = 'paused';
+				
+			}
+			function play_animation(){
+				var e = document.getElementsByClassName('for_size');
+				e[0].style.animationPlayState = 'running';
+			}
+			function increaseOpa(){
+				var b = document.getElementsByClassName('new_user');
+				var c = document.getElementsByClassName('login_form');
+				b[0].style.opacity = '1';
+			//	}
+			}
+			function decreaseOpa(){
+				var b = document.getElementsByClassName('new_user');
+				var c = document.getElementsByClassName('login_form');
+				b[0].style.opacity = '0.6';
+				
+				//var d = document.getElementsByClassName('front-side');
+				//if(b[0].style.opacity=='1'){
+				//d[0].style.transform = 'none';
+				//if(b[0].style.opacity=='1'){
+				//b[0].style.transform = 'rotateY(-5deg)';
+			//	}
+			}
+			function increaseOpa1(){
+				var c = document.getElementsByClassName('login-form');
+				c[0].style.opacity = '1';
+				//var d = document.getElementsByClassName('3d-box');
+				//d.style.display = 'none';
+				//e = document.getElementsByClassName('');
+				//d[0].style.animationPlayState = 'paused';
+				//if(b[0].style.opacity=='1'){
+			//	d[0].style.transform = 'rotateY(-45deg) translateX(-16vw)';
+				//d[0].style.transformOrigin = 'left';
+				//d[0].style.transform = 'rotateY(-30deg) translateX(-16vw)';
+			//	}
+				//if(b[0].style.opacity=='1'){
+				//c[0].style.transform = 'rotateY(90deg)';
+			//	}
+			}
+			function decreaseOpa1(){
+				var b = document.getElementsByClassName('new_user');
+				var c = document.getElementsByClassName('login-form');
+				c[0].style.opacity = '0.6';
+				//var d = document.getElementsByClassName('left-side');
+				//if(b[0].style.opacity=='1'){
+				//d[0].style.transformOrigin = 'left';
+				//d[0].style.transform = 'rotateY(-90deg) translateX(-16vw)';
+				//if(b[0].style.opacity=='1'){
+			//	}
+				//if(b[0].style.opacity=='1'){
+				//b[0].style.transform = 'rotateY(-5deg)';
+			//	}
+			}
+		
+</script>
+	<!-- #f1f1f1; -->
+	</head>
+	<body>
+		
+		<img class="mySlides" src="homescreen_1.jpg">
+		<img class="mySlides" src="homescreen_3.jpg">
+<div class='topnav' id="myTopnav" width="100%"; >
+			<img src="Book-Corner-logo-3_1.png" alt="Books_Corner"  class="company-logo"></img>
+				<a href="screen1.html">Home</a>
+				<div class='dropdown'> 
+				<button class="dropbtn">Categories
+				<i class="fa fa-caret-down"></i>
+				</button>
+				<div class='dropdown-content'>
+				<a href='..\Front\final.html' >Top Picks </a>
+				<a href='..\Sci-Fi\Sci-Fi.html'> Sci-Fi </a>
+				<a href='..\Science\Science.html'> Science </a>
+				<a href='..\Biography\biography.html'> Biography </a>
+				<a href='..\Crime\Crime.html'>Crime </a>
+				<a href='..\Romance\Romance.html'> Romance </a>
+				<a href='..\Fiction\Fiction.html'>Fiction</a>
+				</div>
+				</div>
+				<a href="..\Issued\issued_books.html">Issued Books</a>
+			<!--	<a href="#" class="positioning2"></a> -->
+				<a href="#" >About us</a>
+				<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+				
+					<div class='3d-box'>
+	<div class='for_size' onmouseenter='stop_animation()' onmouseleave='play_animation()'>
+			<div class='front-side'>
+				<div class='new_user' onmouseenter='increaseOpa()' onmouseleave='decreaseOpa()'>
+			<h4> CREATE ACCOUNT!</h4>
+			<form class='formsign_up_style' action='logged_in.html' method='post'>
+				<table>
+				<tr><td>
+				<input type='text' name='uname' id='uname' class='input-field1' placeholder='First Name' onblur='return validate1()' />
+				</td></tr>
+				<tr><td>
+				<input type='text' name='ulname' id='ulname' class='input-field1' placeholder='Last Name' onblur='return validate2()' />
+				</td></tr>
+				<tr><td>
+				<input type='text' name='email' id='email' class='input-field1' placeholder='Email' onblur='return validate3()' />
+				</td>
+				</tr>
+				<tr><td>
+				<input type='text' name='phone' id='phone' class='input-field1' placeholder='Mobile Number' onblur='return validate4()' />
+				</td><td id='phone_info'></td>
+				</tr>
+				<tr><td>
+				<input type='date' name='age' id='age' class='input-field1' placeholder='DOB' onblur='return validate5()' />
+				</td></tr>
+				<tr><td>
+				<input type='radio' onclick='change_color()' name='gender' id='imale' value='male' />
+				<label for id='imale' class='label_class'>Male</label>
+				<input type='radio' onclick='change_color()' name='gender' id='ifemale' value='female' />
+				<label for id='ifemale' class='label_class'>Female</label>
+				</td></tr>
+				<tr><td>
+				<input type='password' name='pass' id='pass' class='input-field1' placeholder='Password' onblur='return validate6()' />
+				</td><td id='pass_info'></td>
+				</tr>
+				<tr><td>
+				<input type='password' name='cpass' id='cpass' class='input-field1' placeholder='Re-Enter Password' onblur='return validate7()'/>
+				</td></tr>
+				<tr><td>
+				<button id='signup_button' name='signup_button' onclick='return signup_validation()'>Sign Up</button>
+				</td></tr>
+				</table>
+			</form>
+		</div>
+			
+			</div>
+			<div class='left-side'>
+				<div class='login-form' onmouseenter='increaseOpa1()' onmouseleave='decreaseOpa1()'>
+			<img src="..\Home\Book-Corner-logo-3_1.png"  class='logo_position'></img>
+		
+			<form class='form_style' action='#' method='post'>
+				<table>
+				<tr><td>
+				<input type='username' name='usrname' id='usrname' class='input-field' placeholder='Username' onblur='return username_validate1()'/>
+				</td></tr>
+				<tr><td>
+				<input type='password' name='pass1' id='pass1' class='input-field' placeholder='Password' onblur='return password_validate2()'/>
+				</td></tr>
+				<tr><td>
+				<button id='login_button' onclick='return form_validation()' name='login_button' >Login</button>
+				</td></tr>
+				</table>
+			</form>
+		</div>
+			
+			</div>
+			<div class='right-side'>
+			</div>
+			<div class='back-side'>
+			</div>
+			<div class='top-side'>
+			</div>
+			<div class='bottom-side'>
+			</div>
+	</div>
+		</div>
+		
+	<script>
+		var slideIndex = 0;
+		carousel();
+		function carousel() {
+   		var i;
+    		var x = document.getElementsByClassName("mySlides");
+    		for (i = 0; i < x.length; i++) {
+      		x[i].style.display = "none"; 
+    		}
+    		slideIndex++;
+   	 	if (slideIndex > x.length) {slideIndex = 1} 
+   		x[slideIndex-1].style.display = "block"; 
+    		setTimeout(carousel, 2000); // Change image every 2 seconds
+		}
+		
+		function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+		} 
+	else {
+        x.className = "topnav";
+		}
+	}
+</script>
+
+	</body>
+</html>

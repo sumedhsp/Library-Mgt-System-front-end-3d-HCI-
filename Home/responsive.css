@@ -1,0 +1,92 @@
+.button_read{
+	position:absolute;
+	top:56%;
+	width:100%;
+	border:none;
+	outline:none;
+	background-color:black;
+	color:white;
+	padding:10px 12px;
+	border-radius:5px;
+	cursor:pointer;
+}
+.button_buy{
+	position:absolute;
+	top:47%;
+	width:100%;
+	border:none;
+	outline:none;
+	background-color:black;
+	color:white;
+	padding:10px 12px;
+	border-radius:5px;
+	cursor:pointer;
+}
+.button_close{
+	cursor:pointer;
+	position:absolute;
+	top:65%;
+	width:100%;
+	border:none;
+	outline:none;
+	background-color:black;
+	color:white;
+	padding:10px 12px;
+	border-radius:5px;
+}
+.button_close:hover{
+	background-color:green;
+	color:white;
+}
+.button_buy:hover{
+	background-color:green;
+	color:white;
+}
+.button_read:hover{
+	background-color:green;
+	color:white;
+}
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a:not(:first-child), .dropdown2 .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {
+	  position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+	overflow-y:hidden;
+    display: block;
+	margin-bottom:0.5px;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown2 {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown2 .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}

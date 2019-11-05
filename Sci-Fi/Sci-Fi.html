@@ -1,0 +1,615 @@
+<html>
+	<head>
+		<title>Book Corner</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href='..\Home\responsive.css'>
+	
+		<style type="text/css">
+			#title_bg{
+			background-color:white;
+			height:60px;
+			width:100%;
+		}
+		.desk_bg{
+			background: linear-gradient(#2B1F19, #5F3A27);
+			width:100%;
+			height:324px;
+			display: block;
+			padding: 0px;
+			margin-left:0px;
+			transform: rotateY(2deg);
+			position:relative;
+		}
+		.border_shelf{
+			background-color: black;
+			width: 100.4%;
+			height: 30px;
+			position:relative;
+			left:-4px;
+			top:-2px;
+			padding:0px;
+			margin-left:0px;
+			border:0px;
+			transform: rotateY(2deg);
+		}
+		* {
+				margin : 0;
+				padding : 0;
+			}
+			.book-bg{
+				position: relative;
+				width: 200px;
+				height: 324px;
+				float: left;
+				background-size : cover;
+				transform-style: preserve-3d;
+				perspective: 500px;
+			}
+			
+			.cover{
+				position: absolute;
+				width:100%;
+				height: 100%;
+				-webkit-box-reflect:below 0px
+				-webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(90%, transparent), to(rgba(250, 250, 250, 0.6)));
+				transform-origin: 0 50%;
+				transform: rotateY(40deg);
+				transition: all 0.8s ease;
+			}
+			.book-bg:hover .cover {
+				transform: rotateY(0deg);
+			}
+			book-bg:hover {
+				transform: rotateY(40deg);
+				
+			}
+				
+			#second_division{
+				display: none;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				height:486px;
+				width:300px;
+				background-attachment: fixed;
+			}
+			#book-bg_1{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: #F0F0F0;
+				background-size : cover;
+				transform-style: preserve-3d;
+				perspective: 500px;
+			}
+			#cover_1{
+				position: absolute;
+				width:100%;
+				height: 100%;
+				background: url('book1.jpg') no-repeat;
+				background-size: cover;
+				transform-origin: 0 50%;
+				transition: all 0.8s ease;
+			}
+			book-bg_1:hover cover_1{
+				transform: rotateY(-75deg);
+			}
+			.blur{
+				filter: blur(10px);
+				-webkit-filter: blur(10px);
+			}
+			#back{
+				background-color:red;
+				height:20px;
+				width:20px;
+			}
+			#cancel{
+				position:relative;
+				top: -13px;
+				left:320px;
+				width:30px;
+				height:30px;
+			}
+			#cancel:hover{
+				background-color:white;
+			}
+		#form_position{
+				position:absolute;
+				top:40%;
+				left:14%;
+				width:70%;
+				height:200px;
+				display:block;
+				box-shadow:0px 0px 10px 0px #888888;
+			}
+			.btn-primary{
+				padding: 5px;
+				width:100px;
+				border-radius: 10px;
+				position:absolute;
+				left: 27%;
+				top:59%;
+				background-color: #555555;
+				color: white;
+				border: none;
+			}
+			#main_positioning{
+				position:relative;
+				left:30%;
+				top:55px;
+			}
+			#label_position{
+				position:absolute;
+				left:37%;
+				top:5%;
+				
+			}
+			#issue{
+				position:absolute;
+				left: 16%;
+				top:33%;
+				border: none;
+				border-bottom:1px solid black;
+				background-color:#F0F0F0;
+				height:27px;
+				padding:3px;
+				
+			}
+			.btn-primary:hover{
+				box-shadow:0px 0px 10px 0px #888888;
+			}
+			input.issue1:focus {
+				outline-width:0;
+				box-shadow:0px 0px 10px 0px #888888;
+			}
+			.already_issued{
+				display:none;
+				position:absolute;
+				top:40%;
+				left:14%;
+				width:70%;
+				height:200px;
+				box-shadow:0px 0px 10px 0px #888888;	
+			}
+			#attention{
+				position:absolute;
+				top:30%;
+				left:20%;
+			}
+			.btn-primary1{
+				padding: 5px;
+				width:100px;
+				border-radius: 10px;
+				position:absolute;
+				left: 27%;
+				top: 68%;
+				background-color: #555555;
+				color: white;
+				border: none;
+				font-family:'Arial';
+			}
+			#cover_div{
+				display: none;
+			}
+		.company-logo{
+		width:170px; 
+		height:60px;
+		float:left;
+		margin-left:5px;
+		margin-right:50px;
+		margin-top:2px;
+	}
+	.topnav{
+		overflow:hidden;
+		background-color:black;
+		opacity:0.6;
+	}
+	
+	.topnav a{
+		text-decoration:none;
+		color:white;	
+		float:left;
+		font-family:Arial;
+		font-size:18px;
+		display:block;
+		text-align:center;
+		padding:19px;
+		margin-top:3px;
+		z-index:7;
+}
+	.topnav .icon {
+		display:none;
+	}
+	.dropdown{
+		float:left;
+		overflow:hidden;
+	}
+	.dropdown .dropbtn{
+		border:none;
+		outline:none;
+		color:white;
+		margin-top:3px;
+		font-size:18px;
+		padding:19px;
+		background-color:inherit;
+		font-family:Arial;
+	}
+	.dropdown-content{
+		display:none;
+		position:absolute;
+		min-width:160px;
+		box-shadow:0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index:5;
+		opacity:1;
+		background-color: #f9f9f9;
+	}
+	.dropdown-content a{
+		float:none;
+		color:black;
+		text-decoration: none;
+		display:block;
+		padding:12px 16px;
+		text-align:left;
+		position:relative;
+		z-index:3;
+	}
+	.topnav a:hover, .dropdown:hover .dropbtn{
+		background-color:white;
+		color:black;
+		opacity:1;
+		border-radius:5px;
+	}
+	.dropdown-content a:hover{
+		background-color: #ddd;
+		color: black;
+	}
+	.dropdown:hover .dropdown-content{
+		display:block;
+	}
+	.mobile_view{
+		display:none;
+		position:absolute;
+		z-index:0;
+		background: linear-gradient(#2B1F19, #5F3A27);
+	}
+	.interim_view{
+		display:none;
+		position:absolute;
+		background: linear-gradient(#2B1F19, #5F3A27);
+	}
+	@media screen and (max-width: 600px) {
+		.desk_bg{
+			display:none;
+		}
+		.border_shelf{
+			display:none;
+		}
+		.mobile_view{
+			display:block;
+		}
+}
+	@media screen and (max-width: 1410px){
+			.desk_bg{
+			display:none;
+		}
+		.border_shelf{
+			display:none;
+		}
+		.interim_view{
+			display:block;
+		}
+	}
+	</style>
+	<script>
+		function openFunction(a){
+			//alert (a);
+			//alert('Hello! Entered Inside!');
+			var index = parseInt(a);
+			document.getElementById('second_division').style.display = "block";
+			var main_div = document.getElementById('rest');
+			main_div.setAttribute('class', 'blur');
+			var image = document.getElementsByClassName("cover")[index];
+			//alert(image);
+			var check = image.style.backgroundImage;
+			//alert(check);
+			var second_division_image = document.getElementById('cover_1');
+			second_division_image.style.backgroundImage = check;
+		}
+		function closeBook(){
+			var main_div = document.getElementById('rest');
+			document.getElementById('second_division').style.display = "none";
+			main_div.removeAttribute('class', 'blur');
+		}
+		function openrotate(){
+			var cover = document.getElementById('cover_1');
+			cover.style.transform = "rotateY(-80deg)";
+			setTimeout(function(){
+			var cover_div = document.getElementById('cover_div');
+			cover_div.style.display = "block";
+			}, 500);
+			
+		}
+		function closeBook1(){
+			var cover_div = document.getElementById('cover_div');
+			cover_div.style.display = "none";
+			var cover = document.getElementById('cover_1')
+			cover.style.transform = "rotateY(0deg)";
+			
+		}
+		function decrease_index(){
+			//('Call Successful!');
+			var a = document.getElementsByClassName('desk_bg');
+			//alert(a);
+			a[0].style.zIndex = "-1";
+			//alert('Successful!');
+			var b = document.getElementsByClassName('interim_view');
+			b[0].style.zIndex = '-1';
+		}
+		function reset_index(){
+			//alert('Mouse_leave fuctiomn');
+			var b = document.getElementsByClassName('desk_bg');
+			b[0].style.zIndex = "auto";
+			//alert('Successful!');
+			var a = document.getElementsByClassName('interim_view');
+			a[0].style.zIndex = 'auto';
+		}
+	</script>
+	</head>
+	<body>
+	<div id='rest' onmouseover='closeBook1()'>
+		<div class='topnav' id="myTopnav" width="100%"; onmousemove='decrease_index()' onmouseleave='reset_index()'>
+			<img src="..\Home\Book-Corner-logo-3_1.png" alt="Books_Corner"  class="company-logo"></img>
+				<a href="..\Home\screen1.html">Home</a>
+				<div class='dropdown'> 
+				<button class="dropbtn">Categories
+				<i class="fa fa-caret-down"></i>
+				</button>
+				<div class='dropdown-content'>
+				<a href='..\Front\final.html' >Top Picks </a>
+				<a href='..\Sci-Fi\Sci-Fi.html'> Sci-Fi </a>
+				<a href='..\Science\Science.html'> Science </a>
+				<a href='..\Biography\biography.html'> Biography </a>
+				<a href='..\Crime\Crime.html'>Crime </a>
+				<a href='..\Romance\Romance.html'> Romance </a>
+				<a href='..\Fiction\Fiction.html'>Fiction</a>
+				</div>
+				</div>
+				<a href="..\Issued\issued_books.html">Issued Books</a>
+			<!--	<a href="#" class="positioning2"></a> -->
+				<a href="#" >About us</a>
+				<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+		<div>
+		<div class="desk_bg">
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(0)'  style='background: url("book1.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(1)' style='background: url("book2.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(2)' style='background: url("book3.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(3)' style='background: url("book4.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(4)' style='background: url("book5.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(5)' style='background: url("book6.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(6)' style='background: url("book7.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		</div>
+		
+		<div class="border_shelf" onclick='closeBook()'>
+		</div>
+		<div class="desk_bg">
+			<div class="book-bg">
+				<div class="cover" onclick='openFunction(7)'  style='background: url("book8.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(8)' style='background: url("book9.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(9)' style='background: url("book10.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(10)' style='background: url("book11.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(11)' style='background: url("book12.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(12)' style='background: url("book13.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(13)' style='background: url("book14.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		
+		</div>
+		<div class="border_shelf" onclick='closeBook()'>
+		</div>
+		
+	</div>
+	<div class='interim_view'>
+		<div class="book-bg">
+		<div class="cover" onclick='openFunction(0)'  style='background: url("book1.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(1)' style='background: url("book2.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(2)' style='background: url("book3.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(3)' style='background: url("book4.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(4)' style='background: url("book5.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(5)' style='background: url("book6.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(6)' style='background: url("book7.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(7)'  style='background: url("book8.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(8)' style='background: url("book9.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(9)' style='background: url("book10.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(10)' style='background: url("book11.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(11)' style='background: url("book12.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(12)' style='background: url("book13.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(13)' style='background: url("book14.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		
+		
+		</div>
+	
+	<div class='mobile_view' >
+		<div class="book-bg">
+		
+		<div class="cover" onclick='openFunction(0)'  style='background: url("book1.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(1)' style='background: url("book2.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(2)' style='background: url("book3.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(3)' style='background: url("book4.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(4)' style='background: url("book5.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(5)' style='background: url("book6.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(6)' style='background: url("book7.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(7)'  style='background: url("book8.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(8)' style='background: url("book9.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(9)' style='background: url("book10.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(10)' style='background: url("book11.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(11)' style='background: url("book12.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(12)' style='background: url("book13.jpg") no-repeat; background-size:cover;'>
+				</div>
+			</div>
+		<div class="book-bg">
+				<div class="cover" onclick='openFunction(13)' style='background: url("book14.jpg") no-repeat; background-size:cover;'>
+				</div>
+		</div>
+		
+		
+		
+		
+		
+		</div>
+	
+	
+	</div>
+	<div id='second_division' onmouseleave='closeBook1()'>
+			<div id='cancel'>
+			<img src='..\Front\Cancel.png' onclick='closeBook()' />
+			</div>
+			<div id="book-bg_1" onmouseleave='closeBook1()'>
+				<div id='cover_1' onmouseover='openrotate()'>
+				</div>
+				<div id='cover_div'>
+				<img id='main_positioning' src='..\Front\Reading_logo.png' />
+				<br>
+				<br>
+				<br>
+				<button type='button' class='button_read' onclick='checkfunction()'> Read book
+				</button><br>
+				<button type='button' class='button_buy' onclick='checkfunction()'> Buy Book
+				</button><br>
+				<button type='button' class='button_close' onclick='closeBook()'> Close
+				</button>
+				</div>
+			</div>
+			</div>
+	<script>
+		function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+		} 
+	else {
+        x.className = "topnav";
+		}
+	}
+	</script>
+	</body>
+</html>
